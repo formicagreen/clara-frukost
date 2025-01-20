@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title>Clara's breakfast</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- Import the component -->
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
+<head>
+    <meta charset="utf-8">
+    <title>Clara's breakfast</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <!-- Import the component -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <style>
+        :root {
+            touch-action: pan-x pan-y;
+            height: 100%
+        }
+    </style>
 
 </head>
 
-<body>
-    <model-viewer src="compressed_1737396583227_1_15_2025.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" auto-rotate>
+<body style="height: 100vh; width: 100vw; margin: 0;">
+    <model-viewer style="height: 100%; width: 100%;" src="compressed_1737396583227_1_15_2025.glb" ar
+        ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" auto-rotate>
+        <button slot="ar-button" id="ar-button"
+            style="position: fixed; bottom: 0; padding: 1rem; font-size: 125%; margin: 1rem;">
+            View in your space
+        </button>
         <div class="progress-bar hide" slot="progress-bar">
             <div class="update-bar"></div>
         </div>
-        <button slot="ar-button" id="ar-button">
-            View in your space
-        </button>
-    </model-viewer>    
 
-<script>
-</script>
+    </model-viewer>
+
+    <script>
+        const jsConfetti = new JSConfetti()
+        const showConfetti = () => jsConfetti.addConfetti({
+            emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
+            emojiSize: 50,
+            confettiNumber: 100,
+        });
+        setTimeout(showConfetti, 2000);
+        setTimeout(showConfetti, 4000);
+        setTimeout(showConfetti, 6000);
+    </script>
 
 </body>
+
 </html>
